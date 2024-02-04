@@ -1,4 +1,4 @@
-// Додавання бібліотеки
+// Додавання бібліотеки SimpleLightbox
 // Описаний в документації
 import SimpleLightbox from 'simplelightbox';
 // Додатковий імпорт стилів
@@ -88,15 +88,29 @@ const imageItem = images
 
 list.insertAdjacentHTML('beforeend', imageItem);
 
-// const imageGallery = document.querySelector('.gallery');
+//Ініціалізація бібліотеки SimpleLightbox
+let gallery = new SimpleLightbox('.gallery a');
+gallery.on('show.simplelightbox', function () {
+  // Do something…
+});
 
-// imageGallery.addEventListener('click', onClick);
+gallery.on('error.simplelightbox', function (e) {
+  console.log(e); // Some usefull information
+});
 
-// // Обробка події кліку по зображенню
-// function onClick(event) {
-//   event.preventDefault(); // скидання дефолтного значення браузера (скачування зображення)
-//   // Перевірка на клік по зображенню
-//   if (event.target.nodeName !== 'IMG') {
-//     return; // користувач клікнув між зображеннями
-//   }
-// }
+// Налаштування опций модального вікна
+new SimpleLightbox('.gallery a', {
+  captions: true,
+  captionsData: 'alt',
+  captionPosition: 'bottom',
+  captionDelay: 250,
+});
+
+// Скидання дії за дефолтом при натисканні Esc
+document.addEventListener('keydown', pressKeyEsc);
+function pressKeyEsc(event) {
+  if (event.code !== 'Escape') {
+    return; // користувач клікнув не на Esc
+  }
+  event.preventDefault(); // в Safari за дефолтом Esc переводить браузер з повноекронного у віконний режим
+}
