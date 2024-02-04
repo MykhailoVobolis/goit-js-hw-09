@@ -13,26 +13,3 @@ body {
   line-height: 1.5;
   max-width: 1440px;
 }
-
-/* Стилі галереї */
-
-.gallery {
-  list-style-type: none;
-  padding-left: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px;
-  row-gap: 24px;
-  padding-top: 60px;
-}
-
-.gallery-image {
-  transition: transform 250ms ease-in-out;
-}
-
-.gallery-image:hover {
-  cursor: zoom-in;
-  transform: scale(1.04);
-  transition: transform 250ms ease-in-out;
-}
