@@ -88,19 +88,8 @@ const imageItem = images
 
 list.insertAdjacentHTML('beforeend', imageItem);
 
-//Ініціалізація бібліотеки SimpleLightbox
-let gallery = new SimpleLightbox('.gallery a');
-gallery.on('show.simplelightbox', function () {
-  // Do something…
-});
-
-gallery.on('error.simplelightbox', function (e) {
-  console.log(e); // Some usefull information
-});
-
-// Налаштування опций модального вікна
-new SimpleLightbox('.gallery a', {
-  captions: true,
+//Ініціалізація бібліотеки SimpleLightbox та налаштування опций модального вікна
+const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionPosition: 'bottom',
   captionDelay: 250,
