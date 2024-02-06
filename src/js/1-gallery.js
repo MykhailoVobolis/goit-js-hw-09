@@ -94,12 +94,3 @@ const lightbox = new SimpleLightbox('.gallery a', {
   captionPosition: 'bottom',
   captionDelay: 250,
 });
-
-// Скидання дії за дефолтом при натисканні Esc
-document.addEventListener('keydown', pressKeyEsc);
-function pressKeyEsc(event) {
-  if (event.code !== 'Escape') {
-    return; // користувач клікнув не на Esc
-  }
-  event.preventDefault(); // в Safari за дефолтом Esc переводить браузер з повноекронного у віконний режим
-}
